@@ -128,6 +128,28 @@ function playRandomAudio(audioArray, callback) {
   };
 }
 
+let currentAudio = null; // Track the currently playing audio object
+
+// Helper Function: Play Looping Audio Continuously
+function playContinuousAudio(audioArray) {
+  if (currentAudio) return;
+
+  const randomIndex = Math.floor(Math.random() * audioArray.length);
+  currentAudio = new Audio(audioArray[randomIndex]);
+  currentAudio.loop = true; // Make audio play continuously
+  
+  currentAudio.play().catch(e => console.log("Audio blocked:", e));
+}
+
+// Helper Function: Stop Looping Audio
+function stopContinuousAudio() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0; // Reset track
+    currentAudio = null;
+  }
+}
+
 // Countdown Timer
 function startTimer(secondsLeft) {
   setInterval(() => {
@@ -180,8 +202,8 @@ function onResults(results) {
 
     if (!leftRoomTimer) {
       leftRoomTimer = setTimeout(() => {
-        playRandomAudio(leftRoomAudios);
-      }, 1000);
+        playContinuousAudio(leftRoomAudios);
+      }, 1000); // 1-second delay
     }
     return;
   }
@@ -200,7 +222,6 @@ function onResults(results) {
   const faceWidth = Math.abs(rightCheek.x - leftCheek.x);
   const nosePositionRatio = (noseTip.x - leftCheek.x) / faceWidth;
 
-  // If nose leans too far left (<0.3) or right (>0.7), user is turned away
   const isLookingAway = nosePositionRatio < 0.3 || nosePositionRatio > 0.7;
 
   if (isLookingAway) {
@@ -209,8 +230,8 @@ function onResults(results) {
 
     if (!lookAwayTimer) {
       lookAwayTimer = setTimeout(() => {
-        playRandomAudio(lookAwayAudios);
-      }, 1000);
+        playContinuousAudio(lookAwayAudios);
+      }, 1000); // 1-second delay
     }
   } else {
     statusBadge.innerText = "STATUS: Focused!";
@@ -218,5 +239,8 @@ function onResults(results) {
 
     clearTimeout(lookAwayTimer);
     lookAwayTimer = null;
+
+    // Stop continuous audio when focused
+    stopContinuousAudio();
   }
 }
