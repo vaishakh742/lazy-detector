@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lazy Detector</title>
   <link rel="stylesheet" href="style.css">
+  
+  <!-- MediaPipe Libraries for Face Detection -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
+  <!-- PAGE 1: SETUP PAGE -->
   <div id="page-1" class="page">
     <h1>Lazy Detector</h1>
     <p>How many hours are you going to study today?</p>
@@ -17,19 +22,36 @@
     </div>
   </div>
 
+  <!-- **NEW: PRANK POPUP MODAL** -->
+  <div id="prank-modal" class="modal hidden">
+    <div class="modal-content prank-content">
+      <!-- The image you selected -->
+      <img src="./photo.png" alt="Study Hard!" class="prank-img">
+      
+      <!-- The dynamic message about the time increase -->
+      <p id="prank-message"></p>
+      
+      <button id="prank-ok-btn">OK... Fine.</button>
+    </div>
+  </div>
+
+  <!-- PAGE 2: STUDY ROOM PAGE (No Changes Here) -->
   <div id="page-2" class="page hidden">
     <div class="webcam-container">
       <video id="webcam" autoplay playsinline muted></video>
-      <div id="status-badge">Detecting Face...</div>
+      <div id="status-badge">Initializing AI...</div>
     </div>
 
+    <!-- Floating Quit Button -->
     <button id="quit-btn">Quit</button>
 
+    <!-- Bottom Right Timer -->
     <div id="timer-box">
       <span>Time Remaining:</span>
       <h2 id="timer-display">00:00:00</h2>
     </div>
 
+    <!-- Quit Modal Popup -->
     <div id="quit-modal" class="modal hidden">
       <div class="modal-content">
         <h2>Giving up so soon?</h2>

@@ -23,17 +23,44 @@ const payBtn = document.getElementById('pay-btn');
 const freeBtn = document.getElementById('free-btn');
 const videoElement = document.getElementById('webcam');
 
+// **NEW: Prank Modal Elements**
+const prankModal = document.getElementById('prank-modal');
+const prankMessage = document.getElementById('prank-message');
+const prankOkBtn = document.getElementById('prank-ok-btn');
+
+let calculatedStudyHours = 0; // The actual time they will study
+
 // Page 1: Prank Logic
 startBtn.addEventListener('click', () => {
-  const userHours = studyInput.value;
-  alert(`Nah son, ${userHours} hours isn't enough! You're studying for 5 hours.`);
+  const userHours = parseInt(studyInput.value, 10); // Ensure it's a number
+
+  // Generate a random increase (e.g., between 2 and 6 hours)
+  const hourIncrease = Math.floor(Math.random() * 5) + 2;
   
+  // Calculate final time, ensuring it doesn't exceed 24 hours
+  calculatedStudyHours = Math.min(24, userHours + hourIncrease);
+
+  // Set the message on the popup
+  prankMessage.innerText = `You thought ${userHours} hours was enough? You are now studying for ${calculatedStudyHours} hours!`;
+
+  // Show the prank popup
+  prankModal.classList.remove('hidden');
+});
+
+// **NEW: Prank Modal "OK" Button logic**
+prankOkBtn.addEventListener('click', () => {
+  // Hide the popup
+  prankModal.classList.add('hidden');
+  
+  // Continue to Page 2 (like before)
   page1.classList.add('hidden');
   page2.classList.remove('hidden');
   
-  startTimer(5 * 3600);
+  // Start the timer with the calculated (increased) hours
+  startTimer(calculatedStudyHours * 3600); // hours to seconds
   initFaceMesh();
 });
+
 
 // Floating Quit Button Logic
 quitBtn.addEventListener('mouseover', () => {
