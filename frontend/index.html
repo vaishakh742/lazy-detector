@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazy Detector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="page-1" class="page">
+    <h1>Lazy Detector</h1>
+    <p>How many hours are you going to study today?</p>
+    <div class="input-group">
+      <input type="number" id="study-hours" min="1" max="12" value="2">
+      <button id="start-btn">Start Studying</button>
+    </div>
+  </div>
+
+  <div id="page-2" class="page hidden">
+    <div class="webcam-container">
+      <video id="webcam" autoplay playsinline muted></video>
+      <div id="status-badge">Detecting Face...</div>
+    </div>
+
+    <button id="quit-btn">Quit</button>
+
+    <div id="timer-box">
+      <span>Time Remaining:</span>
+      <h2 id="timer-display">00:00:00</h2>
+    </div>
+
+    <div id="quit-modal" class="modal hidden">
+      <div class="modal-content">
+        <h2>Giving up so soon?</h2>
+        <p>Choose your way out:</p>
+        <button id="pay-btn">Pay ₹5 & Exit</button>
+        <button id="free-btn">Free Exit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
