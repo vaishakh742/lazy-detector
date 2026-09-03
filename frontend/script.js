@@ -181,7 +181,7 @@ function onResults(results) {
     if (!leftRoomTimer) {
       leftRoomTimer = setTimeout(() => {
         playRandomAudio(leftRoomAudios);
-      }, 5000);
+      }, 1000);
     }
     return;
   }
@@ -210,7 +210,7 @@ function onResults(results) {
     if (!lookAwayTimer) {
       lookAwayTimer = setTimeout(() => {
         playRandomAudio(lookAwayAudios);
-      }, 5000);
+      }, 1000);
     }
   } else {
     statusBadge.innerText = "STATUS: Focused!";
