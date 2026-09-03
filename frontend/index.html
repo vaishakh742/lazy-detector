@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <!-- **NEW: PRANK POPUP MODAL** -->
+  <!-- PRANK POPUP MODAL -->
   <div id="prank-modal" class="modal hidden">
     <div class="modal-content prank-content">
       <!-- The image you selected -->
@@ -35,15 +35,12 @@
     </div>
   </div>
 
-  <!-- PAGE 2: STUDY ROOM PAGE (No Changes Here) -->
+  <!-- PAGE 2: STUDY ROOM PAGE -->
   <div id="page-2" class="page hidden">
     <div class="webcam-container">
       <video id="webcam" autoplay playsinline muted></video>
       <div id="status-badge">Initializing AI...</div>
     </div>
-
-    <!-- Floating Quit Button -->
-    <button id="quit-btn">Quit</button>
 
     <!-- Bottom Right Timer -->
     <div id="timer-box">
@@ -61,6 +58,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Floating Quit Button (Moved outside page-2 so position:fixed uses full viewport) -->
+  <button id="quit-btn" class="hidden">Quit</button>
 
   <script src="script.js"></script>
 </body>

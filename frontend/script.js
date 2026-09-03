@@ -1,5 +1,5 @@
 let escapeAttempts = 0;
-const maxEscapes = 7;
+const maxEscapes = 15; // Set to 15 attempts
 
 // Track distraction timers
 let lookAwayTimer = null;
@@ -23,7 +23,7 @@ const payBtn = document.getElementById('pay-btn');
 const freeBtn = document.getElementById('free-btn');
 const videoElement = document.getElementById('webcam');
 
-// **NEW: Prank Modal Elements**
+// **Prank Modal Elements**
 const prankModal = document.getElementById('prank-modal');
 const prankMessage = document.getElementById('prank-message');
 const prankOkBtn = document.getElementById('prank-ok-btn');
@@ -47,31 +47,47 @@ startBtn.addEventListener('click', () => {
   prankModal.classList.remove('hidden');
 });
 
-// **NEW: Prank Modal "OK" Button logic**
+// **Prank Modal "OK" Button logic**
 prankOkBtn.addEventListener('click', () => {
   // Hide the popup
   prankModal.classList.add('hidden');
   
-  // Continue to Page 2 (like before)
+  // Continue to Page 2
   page1.classList.add('hidden');
   page2.classList.remove('hidden');
+  
+  // Un-hide the quit button on Page 2
+  quitBtn.classList.remove('hidden');
   
   // Start the timer with the calculated (increased) hours
   startTimer(calculatedStudyHours * 3600); // hours to seconds
   initFaceMesh();
 });
 
-
-// Floating Quit Button Logic
+// **Scaling & Floating Quit Button Logic (15 Attempts)**
 quitBtn.addEventListener('mouseover', () => {
   if (escapeAttempts < maxEscapes) {
     escapeAttempts++;
-    const randomX = Math.floor(Math.random() * (window.innerWidth - 120));
-    const randomY = Math.floor(Math.random() * (window.innerHeight - 60));
+    
+    // Smoothly scale down from 1.5x (attempt 1) to 0.4x (attempt 15)
+    const currentScale = 1.5 - ((escapeAttempts - 1) * ((1.5 - 0.4) / (maxEscapes - 1)));
+    
+    // Get actual button dimensions
+    const btnWidth = quitBtn.offsetWidth || 100;
+    const btnHeight = quitBtn.offsetHeight || 40;
+    const padding = 20; // Keeps button away from screen edges
+    
+    // Calculate safe boundaries inside the visible browser window
+    const maxX = window.innerWidth - btnWidth - padding;
+    const maxY = window.innerHeight - btnHeight - padding;
+    
+    const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+    const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
     
     quitBtn.style.position = 'fixed';
     quitBtn.style.left = `${randomX}px`;
     quitBtn.style.top = `${randomY}px`;
+    quitBtn.style.transform = `scale(${currentScale})`;
   }
 });
 

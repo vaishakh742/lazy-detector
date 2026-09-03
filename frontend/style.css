@@ -94,11 +94,19 @@ button:hover {
   box-shadow: 0 12px 25px rgba(255, 71, 87, 0.5);
 }
 
-/* Floating Quit Button */
+/* Floating Quit Button (Forced Square Layout) */
 #quit-btn {
   position: absolute;
   bottom: 30px;
   left: 30px;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
