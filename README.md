@@ -8,10 +8,8 @@
 ## Basic Details
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
-
+- Team Lead: [vaishakh pillai] - [model engineering colleg, thrikkakara]
+-
 ### Project Description
 [its a lazy detector to keep sure that you avoid procrastinaing]
 
