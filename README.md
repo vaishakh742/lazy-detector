@@ -51,44 +51,88 @@ For Software:
 
 # Screenshots (Add at least 3)
 ![Screenshot1]()
-*Add caption explaining what this shows*
+it igores the users input of study hours and choses its own
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot2](https://drive.google.com/file/d/1QHy2qhvoqnzjXwUXfApgkM6tzfwX7Rjp/view?usp=drive_link)
+the face detection section where it checks whether the user is focused or not, if not focused audio plays to roast them
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot3](https://drive.google.com/file/d/1W_Ubt3aTr09iCmrmXhF5Me--YWg4Dsro/view?usp=drive_link)
+when exit page is selected it asks whether to pay and exit or to free exit which both plays audios to make a funny gesture
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+![Workflow]([ User Inputs Study Hours ]
+              │
+              ▼
+    [ Click "Start Studying" ]
+              │
+              ▼
+ [ Calculate Inflated Hours ] ──> (Adds 2–5 hours randomly, max 24h)
+              │
+              ▼
+   [ Show Prank Popup Modal ]
+              │
+              ▼
+    [ Click "OK... Fine" ]
+              │
+              ├────────────────────────────────────────┐
+              ▼                                        ▼
+   [ Start Countdown Timer ]             [ Init MediaPipe Face Mesh ]
+              │                                        │
+              │                                        ▼
+              │                             [ AI Frame Analysis Loop ]
+              │                                        │
+              │                 ┌──────────────────────┼──────────────────────┐
+              │                 ▼                      ▼                      ▼
+              │         [ No Face Detected ]   [ Nose Ratio Out of Bounds ] [ Nose Ratio Balanced ]
+              │                 │                      │                      │
+              │                 ▼                      ▼                      ▼
+              │          STATUS: Away!       STATUS: Looking Away!     STATUS: Focused!
+              │                 │                      │                      │
+              │                 ▼                      ▼                      ▼
+              │        (Wait 1s Delay)        (Wait 1s Delay)        [ Stop Continuous Audio ]
+              │                 │                      │                      │
+              │                 ▼                      ▼                      │
+              │        [ Play Loop Audio ]    [ Play Loop Audio ]             │
+              │                 │                      │                      │
+              │                 └──────────────────────┴──────────────────────┘
+              │                                        │
+              ▼                                        │
+  [ Floating Quit Button Hover ] <─────────────────────┘
+              │
+              ├───────> (Attempts < 15): Dodge to Random Coordinates & Scale Down (1.5x ──> 0.4x)
+              │
+              └───────> (Attempts = 15): [ Click Quit Button ]
+                                              │
+                                              ▼
+                                      [ Show Exit Modal ]
+                                              │
+                                              ▼
+                                 [ Pay ₹394 ] OR [ Free Exit ]
+                                              │
+                                              ▼
+                                      [ Page Reloads ])
+*Lazy Detector runs on a three-stage workflow:
+
+Setup & Prank Inflation: The user enters study hours, but the app randomly adds 2–5 hours (max 24h). A taunting prank modal (photo.png) displays the inflated time. Clicking "OK" launches the study session and timer.
+
+AI Focus Tracking: Google MediaPipe Face Mesh processes the live webcam stream:
+
+Away: If no face is detected, the badge turns red and a looping warning sound plays after 1 second.
+
+Distracted: If the nose position ratio leeches left or right (<0.3 or >0.7), the badge turns orange and plays a looping look-away track after 1 second.
+
+Focused: Looking back at the screen immediately stops the audio loop and turns the badge green.
+
+Hostile Exit: Hovering over the floating "Quit" button triggers a dodging script. For 15 attempts, the button relocates to random screen coordinates while shrinking from 1.5x down to 0.4x. Once 15 escapes are reached, clicking it opens the exit modal to pay ₹394 or exit free.*
 
 For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
-[Add any extra demo materials/links]
+[https://drive.google.com/file/d/1DEhReBzn_SKQQd-jjLXVXLT9_xFGfXow/view?usp=drive_link]
+*the video explains how the app wrks by using face detection to check whether the person is focused or not and it plays certain audio roasts to make them more focused and the quit button also moves around so as to make them stick to the app
 
 ## Team Contributions
 - [vaishakh pillai]: [frontend deelopment]
