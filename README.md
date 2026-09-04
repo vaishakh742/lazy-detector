@@ -25,6 +25,9 @@ Aggressive AI Tracking: Uses MediaPipe Face Mesh to blast looping audio roast ca
 
 Final Boss Exit Button: Shrinks and dodges your cursor 15 times before demanding ₹394 just to let you exit.]
 
+##Website link
+https://lazy-detector.vercel.app/
+
 ## Technical Details
 ### Technologies/Components Used
 For Software:
