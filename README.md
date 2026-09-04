@@ -2,12 +2,10 @@
 
 
 
-# [Project Name] 🎯
+# [lazy detector] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
-
 
 ### Team Members
 - Team Lead: [Name] - [College]
@@ -15,40 +13,44 @@
 - Member 3: [Name] - [College]
 
 ### Project Description
-[2-3 lines about what your project does]
+[its a lazy detector to keep sure that you avoid procrastinaing]
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+[Standard productivity apps are straight-up dynamic fails because they rely on self-discipline and offer zero pressure. They give you soft reminders and free exits, making it way too easy to fold, get distracted, or doomscroll. The second a notification hits or the vibe drops, students abandon their study grind completely. Without an unhinged app forcing you to lock in, your focus gets cooked instantly.]
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+["Lazy Detector" forces you to lock in by holding your screen hostage with AI surveillance and toxic UI:
+
+Time Inflation Prank: Secretly jacks up your study goal up to 24 hours behind a taunting popup.
+
+Aggressive AI Tracking: Uses MediaPipe Face Mesh to blast looping audio roast calls the second you look away or leave your desk.
+
+Final Boss Exit Button: Shrinks and dodges your cursor 15 times before demanding ₹394 just to let you exit.]
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- [css,javascript,html]
+- [Vanilla Web Technologies,Google MediaPipe Face Mesh, MediaPipe Camera Utils]
+- [Google MediaPipe Face Mesh, MediaPipe Camera Utils]
+- [vs code,vecel,live server,git and github]
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- [none]
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+[none]
 
 # Run
-[commands]
+[none]
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
+![Screenshot1]()
 *Add caption explaining what this shows*
 
 ![Screenshot2](Add screenshot 2 here with proper name)
@@ -89,9 +91,8 @@ For Hardware:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- [vaishakh pillai]: [frontend deelopment]
+
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
