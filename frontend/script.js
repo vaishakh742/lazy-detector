@@ -1,5 +1,5 @@
 let escapeAttempts = 0;
-const maxEscapes = 15; // Set to 15 attempts
+const maxEscapes = 8; // Set to 15 attempts
 
 // Track distraction timers
 let lookAwayTimer = null;
